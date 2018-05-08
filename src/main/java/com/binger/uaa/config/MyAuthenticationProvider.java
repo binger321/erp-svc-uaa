@@ -38,6 +38,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = DigestUtils.md5DigestAsHex( ((String)authentication.getCredentials()).getBytes() );
+//        String password = authentication.getCredentials().toString();
         UserDetails userDetail = userDetailsService.loadUserByUsername(username);
         User user = userService.findUserByName(userDetail.getUsername());
         User selective = new User();

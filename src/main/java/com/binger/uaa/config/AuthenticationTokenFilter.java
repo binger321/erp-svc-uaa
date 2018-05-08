@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by zhuzhixian on 17-6-26.
+ * 权限令牌过滤器
  */
 
 @Component

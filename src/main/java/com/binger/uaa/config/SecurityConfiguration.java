@@ -66,7 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
 
 
-    // password 方案一：明文存储，用于测试，不能用于生产
+//    // password 方案一：明文存储，用于测试，不能用于生产
 //    @Bean
 //    PasswordEncoder passwordEncoder(){
 //        return NoOpPasswordEncoder.getInstance();

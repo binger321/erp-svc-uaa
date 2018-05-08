@@ -1,7 +1,7 @@
 package com.binger.uaa.config;
 
-import com.binger.uaa.common.security.CompositePrincipal;
-import com.binger.uaa.common.util.MyEasyJsonUtil;
+import com.binger.common.security.CompositePrincipal;
+import com.binger.common.util.MyEasyJsonUtil;
 import com.binger.uaa.domain.User;
 import com.binger.uaa.service.UserService;
 import org.apache.commons.codec.binary.Base64;
