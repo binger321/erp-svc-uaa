@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
@@ -27,7 +26,6 @@ import java.security.KeyPair;
 
 @Configuration
 @EnableAuthorizationServer
-@PropertySource("classpath:application.properties")
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
@@ -44,8 +42,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private TokenStore tokenStore;
 
     @Value("${spring.application.name}")
-    private String applicationName;
-
+    private String applicationName = "erp-svc-uaa";
 
     @PostConstruct
     @Bean

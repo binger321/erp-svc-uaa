@@ -1,5 +1,6 @@
 package moe.cnkirito.security.oauth2.web;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestEndpoints {
 
+    @Value("${spring.application.name}")
+    private String applicationName;
+
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable String id) {
+        System.out.println(applicationName);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return "product id : " + id;
     }
