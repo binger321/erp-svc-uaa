@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
                 isUpdate = false;
         }
         if (isUpdate) {
-            long count = userMapper.updateByPrimaryKey(user);
+            long count = userMapper.updateByPrimaryKeySelective(user);
             if (count > 0) {
                 return DozerUtils.convert(userMapper.selectByPrimaryKey(id), User.class);
             } else {
