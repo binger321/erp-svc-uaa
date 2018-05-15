@@ -3,6 +3,7 @@ package com.binger.uaa.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -119,7 +120,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable().exceptionHandling().
                 and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterAfter(myAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeRequests().anyRequest().authenticated();
+                .authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/oauth/**").permitAll();
+//                .authorizeRequests().anyRequest().authenticated();
     }
 
     @Override
